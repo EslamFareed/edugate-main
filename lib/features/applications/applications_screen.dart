@@ -4,7 +4,6 @@ import 'package:edugate/features/login/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../core/app_colors.dart';
 
 class ApplicationsScreen extends StatelessWidget {
   const ApplicationsScreen({super.key});
@@ -84,7 +83,7 @@ class ApplicationsScreen extends StatelessWidget {
 
                                   if (item.status == "interview")
                                     Text(
-                                      "You have interview on ${item.interviewDate.year}-${item.interviewDate.month}-${item.interviewDate.day}",
+                                      "You have interview on ${item.interviewDate}",
                                     ),
                                   if (item.status == "interview")
                                     Text(

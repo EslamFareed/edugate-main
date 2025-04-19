@@ -53,7 +53,7 @@ class StudentApplication {
   final User user;
   final String certificatePhoto;
   final String status;
-  final DateTime interviewDate;
+  final String interviewDate;
   final String interviewDesc;
 
   StudentApplication({
@@ -96,7 +96,7 @@ class StudentApplication {
       certificatePhoto: json['certificatePhoto'],
       status: json['status'],
       interviewDesc: json['interviewDesc'],
-      interviewDate: DateTime.parse(json['interviewDate']),
+      interviewDate: json['interviewDate'],
     );
   }
 }
