@@ -16,13 +16,23 @@ class ContactUsDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
+          Text(
+            "We’re here to help! If you have questions, feedback, or need assistance using EduGate, feel free to reach out:",
+          ),
+          SizedBox(height: 16),
+
           Text("Phone:", style: TextStyle(fontWeight: FontWeight.bold)),
           SizedBox(height: 4),
-          Text("+1 234 567 890"),
+          Text("+201098138067"),
           SizedBox(height: 16),
           Text("Email:", style: TextStyle(fontWeight: FontWeight.bold)),
           SizedBox(height: 4),
-          Text("support@yourcompany.com"),
+          Text("support@edugateapp.com"),
+          SizedBox(height: 16),
+
+          Text(
+            "Need quick answers? Visit our Help Center in the app or chat with us directly.",
+          ),
         ],
       ),
       actions: [
