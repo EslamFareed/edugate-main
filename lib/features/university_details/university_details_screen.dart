@@ -3,6 +3,7 @@ import 'package:edugate/core/app_functions.dart';
 import 'package:edugate/features/apply_for_university/apply_for_university_screen.dart';
 import 'package:edugate/features/home/models/university_model.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class UniversityDetailsScreen extends StatelessWidget {
   const UniversityDetailsScreen({super.key, required this.item});
@@ -69,6 +70,23 @@ class UniversityDetailsScreen extends StatelessWidget {
                     child: ListTile(
                       leading: Icon(Icons.location_pin),
                       title: Text(item.address, style: TextStyle(fontSize: 16)),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      onTap: () async {
+                        final Uri url = Uri.parse(item.website);
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(
+                            url,
+                            mode: LaunchMode.externalApplication,
+                          );
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
+                      leading: Icon(Icons.link),
+                      title: Text(item.website, style: TextStyle(fontSize: 16)),
                     ),
                   ),
 

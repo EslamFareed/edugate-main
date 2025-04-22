@@ -1,7 +1,5 @@
 import 'package:edugate/features/home/models/major_model.dart';
 
-import '../../../core/cache_helper.dart';
-
 class UniversityModel {
   final String image;
   final String requirements;
@@ -13,6 +11,8 @@ class UniversityModel {
   final String email;
   final String desc;
   final String id;
+  final String website;
+  final bool isAds;
   // bool isFavorite;
 
   UniversityModel({
@@ -26,6 +26,8 @@ class UniversityModel {
     required this.email,
     required this.desc,
     required this.id,
+    required this.website,
+    required this.isAds,
     // this.isFavorite = false,
   });
 
@@ -44,6 +46,8 @@ class UniversityModel {
       email: json['email'],
       desc: json['desc'],
       id: json['id'],
+      website: json['website'],
+      isAds: json['isAds'] ?? false,
       // isFavorite: CacheHelper.isFavorite(json["id"]),
     );
   }
@@ -60,6 +64,8 @@ class UniversityModel {
       'email': email,
       'desc': desc,
       'id': id,
+      'website': website,
+      'isAds': isAds,
     };
   }
 }

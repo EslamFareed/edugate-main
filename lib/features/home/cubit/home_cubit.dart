@@ -15,6 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
   static HomeCubit get(context) => BlocProvider.of(context);
 
   List<UniversityModel> universities = [];
+  List<UniversityModel> adsUniversities = [];
   List<UniversityModel> allUniversities = [];
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -41,9 +42,10 @@ class HomeCubit extends Cubit<HomeState> {
             return UniversityModel.fromJson(university);
           }).toList();
       universities = allUniversities;
-      // emit(SuccessHomeState());
+      adsUniversities = allUniversities.where((e) => e.isAds).toList();
+      emit(SuccessHomeState());
 
-      getSliders();
+      // getSliders();
     } catch (error) {
       log(error.toString(), name: "getUniversities");
       emit(ErrorHomeState());
@@ -66,15 +68,15 @@ class HomeCubit extends Cubit<HomeState> {
     emit(SuccessHomeState());
   }
 
-  List<Map<String, dynamic>> sliders = [];
-  void getSliders() async {
-    emit(LoadingHomeState());
-    try {
-      var data = await firestore.collection("slider").get();
-      sliders = data.docs.map((e) => e.data()).toList();
-      emit(SuccessHomeState());
-    } catch (error) {
-      emit(ErrorHomeState());
-    }
-  }
+  // List<Map<String, dynamic>> sliders = [];
+  // void getSliders() async {
+  //   emit(LoadingHomeState());
+  //   try {
+  //     var data = await firestore.collection("slider").get();
+  //     sliders = data.docs.map((e) => e.data()).toList();
+  //     emit(SuccessHomeState());
+  //   } catch (error) {
+  //     emit(ErrorHomeState());
+  //   }
+  // }
 }

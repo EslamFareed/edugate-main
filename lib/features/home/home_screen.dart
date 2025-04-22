@@ -3,6 +3,7 @@ import 'package:edugate/core/app_functions.dart';
 import 'package:edugate/core/cache_helper.dart';
 import 'package:edugate/features/about_us/about_us_dialog.dart';
 import 'package:edugate/features/applications/applications_screen.dart';
+import 'package:edugate/features/ask/asks_screen.dart';
 import 'package:edugate/features/contact_us/contact_us_dialog.dart';
 import 'package:edugate/features/home/cubit/home_cubit.dart';
 import 'package:edugate/features/profile/profile_screen.dart';
@@ -84,6 +85,13 @@ class HomeScreen extends StatelessWidget {
                   leading: Icon(Icons.bookmark),
                 ),
                 ListTile(
+                  title: Text("Ask"),
+                  onTap: () {
+                    context.goToPage(AsksScreen());
+                  },
+                  leading: Icon(Icons.question_mark),
+                ),
+                ListTile(
                   title: Text("About us"),
                   onTap: () {
                     AboutUsDialog.show(context);
@@ -140,22 +148,69 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           CarouselSlider.builder(
-                            itemCount: HomeCubit.get(context).sliders.length,
+                            itemCount:
+                                HomeCubit.get(context).adsUniversities.length,
                             itemBuilder: (context, index, realIndex) {
-                              return Container(
-                                margin: EdgeInsets.all(5),
-                                width: context.screenWidth,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-
-                                    image: NetworkImage(
-                                      HomeCubit.get(
-                                        context,
-                                      ).sliders[index]["value"],
+                              return InkWell(
+                                onTap: () {
+                                  context.goToPage(
+                                    UniversityDetailsScreen(
+                                      item:
+                                          HomeCubit.get(
+                                            context,
+                                          ).adsUniversities[index],
                                     ),
-                                  ),
+                                  );
+                                },
+                                child: Stack(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      width: context.screenWidth,
+                                      height:
+                                          200, // You can adjust this height as needed
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        image: DecorationImage(
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(
+                                            HomeCubit.get(
+                                              context,
+                                            ).adsUniversities[index].image,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      margin: EdgeInsets.all(5),
+                                      width: context.screenWidth,
+                                      height: 200,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        color: Colors.black.withValues(
+                                          alpha: 0.4,
+                                        ),
+                                      ),
+                                    ),
+                                    PositionedDirectional(
+                                      start: 25,
+                                      bottom: 25,
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          HomeCubit.get(
+                                            context,
+                                          ).adsUniversities[index].name,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               );
                             },
