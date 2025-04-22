@@ -147,80 +147,88 @@ class HomeScreen extends StatelessWidget {
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          CarouselSlider.builder(
-                            itemCount:
-                                HomeCubit.get(context).adsUniversities.length,
-                            itemBuilder: (context, index, realIndex) {
-                              return InkWell(
-                                onTap: () {
-                                  context.goToPage(
-                                    UniversityDetailsScreen(
-                                      item:
-                                          HomeCubit.get(
-                                            context,
-                                          ).adsUniversities[index],
+                          HomeCubit.get(context).adsUniversities.isEmpty
+                              ? Center(child: Text("No ADS Found"))
+                              : CarouselSlider.builder(
+                                itemCount:
+                                    HomeCubit.get(
+                                      context,
+                                    ).adsUniversities.length,
+                                itemBuilder: (context, index, realIndex) {
+                                  return InkWell(
+                                    onTap: () {
+                                      context.goToPage(
+                                        UniversityDetailsScreen(
+                                          item:
+                                              HomeCubit.get(
+                                                context,
+                                              ).adsUniversities[index],
+                                        ),
+                                      );
+                                    },
+                                    child: Stack(
+                                      children: [
+                                        Container(
+                                          margin: EdgeInsets.all(5),
+                                          width: context.screenWidth,
+                                          height:
+                                              200, // You can adjust this height as needed
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(
+                                                HomeCubit.get(
+                                                  context,
+                                                ).adsUniversities[index].image,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Container(
+                                          margin: EdgeInsets.all(5),
+                                          width: context.screenWidth,
+                                          height: 200,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              8,
+                                            ),
+                                            color: Colors.black.withValues(
+                                              alpha: 0.4,
+                                            ),
+                                          ),
+                                        ),
+                                        PositionedDirectional(
+                                          start: 25,
+                                          bottom: 25,
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              HomeCubit.get(
+                                                context,
+                                              ).adsUniversities[index].name,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 22,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.all(5),
-                                      width: context.screenWidth,
-                                      height:
-                                          200, // You can adjust this height as needed
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
-                                        image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(
-                                            HomeCubit.get(
-                                              context,
-                                            ).adsUniversities[index].image,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.all(5),
-                                      width: context.screenWidth,
-                                      height: 200,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
-                                        color: Colors.black.withValues(
-                                          alpha: 0.4,
-                                        ),
-                                      ),
-                                    ),
-                                    PositionedDirectional(
-                                      start: 25,
-                                      bottom: 25,
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          HomeCubit.get(
-                                            context,
-                                          ).adsUniversities[index].name,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 22,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                options: CarouselOptions(
+                                  height: 100,
+                                  autoPlay: true,
+                                  enlargeCenterPage: true,
+                                  viewportFraction: 1,
                                 ),
-                              );
-                            },
-                            options: CarouselOptions(
-                              height: 100,
-                              autoPlay: true,
-                              enlargeCenterPage: true,
-                              viewportFraction: 1,
-                            ),
-                          ),
+                              ),
                           SizedBox(height: 5),
                           SearchBar(
                             hintText: "Search for universities",
