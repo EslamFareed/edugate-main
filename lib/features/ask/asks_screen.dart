@@ -10,7 +10,7 @@ class AsksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AsksCubit.get(context).getAsks();
+    AsksCubit.get(context).getAsks(context);
     return Scaffold(
       appBar: AppBar(title: Text("Asks")),
       floatingActionButton: FloatingActionButton(

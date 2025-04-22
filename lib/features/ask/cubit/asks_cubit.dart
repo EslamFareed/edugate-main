@@ -17,16 +17,20 @@ class AsksCubit extends Cubit<AsksState> {
 
   List<AskModel> asks = [];
 
-  void getAsks() async {
+  void getAsks(BuildContext context) async {
     emit(LoadingGetAsksState());
     try {
-      firestore.collection("asks").snapshots().listen((data) {
-        asks =
-            data.docs.map((e) {
-              return AskModel.fromJson(e.data());
-            }).toList();
-        emit(SuccessGetAsksState());
-      });
+      firestore
+          .collection("asks")
+          .where("user.uid", isEqualTo: LoginCubit.get(context).userData["uid"])
+          .snapshots()
+          .listen((data) {
+            asks =
+                data.docs.map((e) {
+                  return AskModel.fromJson(e.data());
+                }).toList();
+            emit(SuccessGetAsksState());
+          });
     } catch (e) {
       emit(ErrorGetAsksState());
     }
