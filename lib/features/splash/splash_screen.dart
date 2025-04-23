@@ -3,7 +3,6 @@ import 'package:edugate/core/app_functions.dart';
 
 import 'package:edugate/features/login/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -22,11 +21,11 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              "assets/icons/icon.svg",
-              height: 100,
-              width: 100,
-              colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+            Image.asset(
+              "assets/icons/icon.png",
+              height: 200,
+              width: 200,
+              color: Colors.white,
             ),
             Text(
               "EduGate",

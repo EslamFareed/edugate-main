@@ -4,7 +4,6 @@ import 'package:edugate/features/login/cubit/login_cubit.dart';
 import 'package:edugate/features/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../home/home_screen.dart';
 
@@ -26,11 +25,8 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: context.screenHeight * .05),
-                SvgPicture.asset(
-                  "assets/icons/icon.svg",
-                  height: 100,
-                  width: 100,
-                ),
+                Image.asset("assets/icons/icon.png", height: 200, width: 200),
+
                 Text(
                   "EduGate",
                   style: TextStyle(

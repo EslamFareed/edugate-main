@@ -11,7 +11,6 @@ import 'package:edugate/features/saved_universities/saved_universities_screen.da
 import 'package:edugate/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../core/app_colors.dart';
 import '../university_details/university_details_screen.dart';
@@ -46,15 +45,13 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SvgPicture.asset(
-                          "assets/icons/icon.svg",
-                          height: 50,
-                          width: 50,
-                          colorFilter: ColorFilter.mode(
-                            Colors.white,
-                            BlendMode.srcIn,
-                          ),
+                        Image.asset(
+                          "assets/icons/icon.png",
+                          height: 100,
+                          width: 100,
+                          color: Colors.white,
                         ),
+
                         Text(
                           "EduGate",
                           style: TextStyle(fontSize: 30, color: Colors.white),

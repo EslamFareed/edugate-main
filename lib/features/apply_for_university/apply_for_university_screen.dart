@@ -448,7 +448,7 @@ class ApplyForUniversityScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
-                            "Create Account",
+                            "Apply NOW",
                             style: TextStyle(color: Colors.white),
                           ),
                         );

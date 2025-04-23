@@ -20,15 +20,15 @@ class AboutUsDialog extends StatelessWidget {
             Text("Our Company", style: TextStyle(fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
             Text(
-              "We are dedicated to delivering the best digital solutions. "
-              "Our mission is to provide high-quality, reliable, and efficient applications "
-              "that solve real-world problems and bring value to our users.",
+              "EduGate is your gateway to higher education in Egypt."
+              "We make it easy to explore universities, apply online, and find scholarships—all in one app."
+              "With real-time tracking and personalized guidance, EduGate helps you take control of your academic journey with confidence and ease.",
             ),
             SizedBox(height: 16),
             Text("Contact Us", style: TextStyle(fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
-            Text("Email: contact@ourcompany.com"),
-            Text("Phone: +1 234 567 890"),
+            Text("Email:  support@edugateapp.com"),
+            Text("Phone: +201098138067"),
           ],
         ),
       ),
