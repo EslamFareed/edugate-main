@@ -2,6 +2,7 @@ import 'package:edugate/core/app_colors.dart';
 import 'package:edugate/core/app_functions.dart';
 import 'package:edugate/features/apply_for_university/apply_for_university_screen.dart';
 import 'package:edugate/features/home/models/university_model.dart';
+import 'package:edugate/features/pay_visa/pay_visa_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -122,7 +123,8 @@ class UniversityDetailsScreen extends StatelessWidget {
 
                   MaterialButton(
                     onPressed: () {
-                      context.goToPage(ApplyForUniversityScreen(item: item));
+                      context.goToPage(PayVisaScreen(item:item));
+                      // context.goToPage(ApplyForUniversityScreen(item: item));
                     },
                     minWidth: context.screenWidth,
                     height: 50,
