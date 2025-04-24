@@ -423,7 +423,10 @@ class ApplyForUniversityScreen extends StatelessWidget {
                         ? Center(child: CircularProgressIndicator())
                         : MaterialButton(
                           onPressed: () {
-                            if (_formKey.currentState!.validate()) {
+                            if (_formKey.currentState!.validate() &&
+                                ApplyCubit.get(context).idPhoto != null &&
+                                ApplyCubit.get(context).certificatePhoto !=
+                                    null) {
                               ApplyCubit.get(context).apply(
                                 university: item,
                                 user: LoginCubit.get(context).userData,
@@ -438,6 +441,10 @@ class ApplyForUniversityScreen extends StatelessWidget {
                                 motherName: motherNameController.text,
                                 motherPhone: motherPhoneController.text,
                                 motherJob: motherJobController.text,
+                              );
+                            } else {
+                              context.showErrorSnack(
+                                "Please enter all data, choose id photo and certificate photo",
                               );
                             }
                           },
