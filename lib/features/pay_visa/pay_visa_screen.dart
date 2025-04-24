@@ -86,7 +86,7 @@ class _PayVisaScreenState extends State<PayVisaScreen> {
                   Expanded(
                     child: TextFormField(
                       controller: _expiryDateController,
-                      keyboardType: TextInputType.datetime,
+                      // keyboardType: TextInputType.datetime,
                       decoration: InputDecoration(
                         labelText: "MM/YY",
                         border: OutlineInputBorder(),
