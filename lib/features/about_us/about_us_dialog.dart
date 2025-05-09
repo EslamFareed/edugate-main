@@ -20,9 +20,10 @@ class AboutUsDialog extends StatelessWidget {
             Text("Our Company", style: TextStyle(fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
             Text(
-              "EduGate is your gateway to higher education in Egypt."
-              "We make it easy to explore universities, apply online, and find scholarships—all in one app."
-              "With real-time tracking and personalized guidance, EduGate helps you take control of your academic journey with confidence and ease.",
+              "EduGate is your gateway to higher education in Egypt. We make it easy to explore"
+              "universities, apply online, and track your application status all in one app. With "
+              "real-time tracking and personalized guidance, EduGate helps you take control of"
+              "your academic journey with confidence and ease.",
             ),
             SizedBox(height: 16),
           ],

@@ -30,9 +30,7 @@ class ContactUsDialog extends StatelessWidget {
           Text("support@edugateapp.com"),
           SizedBox(height: 16),
 
-          Text(
-            "Need quick answers? Visit our Help Center in the app or chat with us directly.",
-          ),
+          Text("Need quick answers? chat with us directly."),
         ],
       ),
       actions: [
