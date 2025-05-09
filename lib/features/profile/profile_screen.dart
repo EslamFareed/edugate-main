@@ -3,14 +3,35 @@ import 'package:edugate/core/app_functions.dart';
 import 'package:edugate/features/login/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
+import 'edit_profile_screen.dart';
+
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     var userData = LoginCubit.get(context).userData;
     return Scaffold(
-      appBar: AppBar(title: Text("Profile")),
+      appBar: AppBar(
+        title: Text("Profile"),
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await context.goToPage(
+                EditProfileScreen(userData: LoginCubit.get(context).userData),
+              );
+
+              setState(() {});
+            },
+            icon: Icon(Icons.edit),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

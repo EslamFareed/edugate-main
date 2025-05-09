@@ -9,8 +9,8 @@ extension AppFunctions on BuildContext {
   double get screenWidth => MediaQuery.of(this).size.width;
   double get screenHeight => MediaQuery.of(this).size.height;
 
-  void goToPage(Widget screen) {
-    Navigator.push(this, MaterialPageRoute(builder: (context) => screen));
+  Future<void> goToPage(Widget screen) async {
+    await Navigator.push(this, MaterialPageRoute(builder: (context) => screen));
   }
 
   void offToPage(Widget screen) {

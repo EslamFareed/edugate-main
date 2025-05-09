@@ -42,4 +42,18 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginErrorState());
     }
   }
+
+  void editProfile(Map<String, dynamic> data) async {
+    emit(LoginLoadingState());
+    try {
+      data["uid"] = userData["uid"];
+      await firestore.collection("users").doc(data["uid"]).update(data);
+
+      userData = data;
+
+      emit(LoginSuccessState());
+    } catch (e) {
+      emit(LoginErrorState());
+    }
+  }
 }
