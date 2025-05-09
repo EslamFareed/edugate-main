@@ -411,6 +411,7 @@ class ApplyForUniversityScreen extends StatelessWidget {
                     if (state is SuccessApplyState) {
                       context.showSuccessSnack("Application Sent Successfully");
                       Navigator.pop(context);
+                      Navigator.pop(context);
                     }
                     if (state is ErrorApplyState) {
                       context.showErrorSnack(

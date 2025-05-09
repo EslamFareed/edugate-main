@@ -40,7 +40,7 @@ class _PayVisaScreenState extends State<PayVisaScreen> {
         context.showSuccessSnack('Payment Success');
       });
       await Future.delayed(Duration(seconds: 1), () {
-        context.goToPage(ApplyForUniversityScreen(item: widget.item));
+        context.offToPage(ApplyForUniversityScreen(item: widget.item));
       });
     }
   }
